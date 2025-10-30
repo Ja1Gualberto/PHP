@@ -4,19 +4,38 @@ $suceso = null;
 $erro = null;
 $status= null;
 
-$tecnologias = ['HTML', 'CSS', 'JAVASCRIPT', 'PHP','C#'];
-$opcoes_LDP =['JAVASCRIPT', 'PHP','C#'];
+$tecnologias = [
+    ['codigo' => 'html','nome'=> 'HTML'],
+    ['codigo'=> 'css','nome'=> 'CSS'],
+    ['codigo'=> 'javascript','nome'=> 'JAVASCRIPT'],
+    ['codigo'=> 'php','nome'=> 'PHP'],
+    ['codigo'=> 'c#', 'nome'=>'C#']
+];
+$opcoes_LDP = [
+    ['codigo'=> 'javascript','nome'=> 'JAVASCRIPT'],
+    ['codigo'=> 'php','nome'=> 'PHP'],
+    ['codigo'=> 'c#', 'nome'=>'C#']
+];
+// $tecAPI = [
+//     'html'=>'HTML',
+//     'css'=> 'CSS', 
+//     'javascript'=> 'JAVASCRIPT',
+//     'php'=> 'PHP',
+//     'c#'=> 'C#',
+// ];
 
+// Versão para Banco de dados
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $tec = $_POST['tec'];
+    $tec = $_POST['tec'] ?? [];
     var_dump($tec);
 
     if(count($tec)> 2){
         $erro = 'Selecione extamente duas tecnologias';
     }
     foreach($tec as $LDP){
-        if(!in_array($LDP,$opcoes_LDP)){
-            $erro = 'Selecione apenas LDPs';
+        if(!in_array($LDP,array_column($opcoes_LDP, 'codigo'))){
+            $erro = 'A opção selecionada ('.$LDP.') é invalida. Selecione apenas LDPs.';
+            break;
         }
     }
     if(empty($erro)){
@@ -50,9 +69,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <?php foreach($tecnologias as $tec): ?>
 
             <label>
-                <?= $tec ?>
+                <?= $tec['nome'] ?>
             </label>
-            <input type="checkbox" name="tec[]" value="<?= $tec ?>"><br>
+            <input type="checkbox" name="tec[]"value="<?= $tec['codigo'] ?>"><br>
             <hr>
 
         <?php endforeach; ?>

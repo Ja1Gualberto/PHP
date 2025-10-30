@@ -5,22 +5,23 @@ $erro = null;
 $status= null;
 
 $tecnologias = ['HTML', 'CSS', 'JAVASCRIPT', 'PHP','C#'];
-$opcoes_LDP =['JAVASCRIPT', 'PHP','C#'];
+$opcoes_LDP = ['JAVASCRIPT', 'PHP', 'C#'];
 
+// validacaoTexto($erro, $suceso);
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $tec = $_POST['tec'];
-    var_dump($tec);
-
-    if(count($tec)> 2){
-        $erro = 'Selecione extamente duas tecnologias';
+    $opcoes = $_POST['opcoes'];
+    var_dump($opcoes);
+    if(count($opcoes) > 2){
+        $erro = 'Selecione exatamente duas tecnologias';
     }
-    foreach($tec as $LDP){
-        if(!in_array($LDP,$opcoes_LDP)){
-            $erro = 'Selecione apenas LDPs';
+    foreach($opcoes as $op){
+        if(!in_array($op, $opcoes_LDP)){
+            $erro = 'A tecnologia '.$op. ' não é valida';
+        
         }
     }
     if(empty($erro)){
-        $suceso = 'Parabens pela escolha e bons estudos';
+    $suceso = 'Sua seleção fucionou';
     }
 }
 
@@ -33,8 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <title>Formulario</title>
 </head>
 <body>
-    <h1>Formulario</h1><br>
-    <h2>Escolha dois cursos gratis de LDP:</h2>
+    <h1>Formulario</h1>
     <?php if(verificaStatus($erro)): ?>
     <p style="color:red">
         <?= $erro ?>
@@ -46,16 +46,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </p>
     <?php endif;?>
     <form method="post">
-        
-        <?php foreach($tecnologias as $tec): ?>
 
-            <label>
-                <?= $tec ?>
-            </label>
-            <input type="checkbox" name="tec[]" value="<?= $tec ?>"><br>
-            <hr>
+        <select name="opcoes[]" multiple>
 
-        <?php endforeach; ?>
+           <?php foreach($tecnologias as $chave): ?>
+
+            <option value="<?= $chave?>">
+                <?= $chave;?>
+            </option>
+
+            <?php endforeach; ?>
+            <option value="RN">React Native</option>
+        </select>
+
         <input type="submit" value ="Enviar"><br>
     </form>
 </body>

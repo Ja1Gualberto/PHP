@@ -5,23 +5,11 @@ $erro = null;
 $status= null;
 
 $tecnologias = ['HTML', 'CSS', 'JAVASCRIPT', 'PHP','C#'];
-$opcoes_LDP =['JAVASCRIPT', 'PHP','C#'];
+
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $tec = $_POST['tec'];
-    var_dump($tec);
 
-    if(count($tec)> 2){
-        $erro = 'Selecione extamente duas tecnologias';
-    }
-    foreach($tec as $LDP){
-        if(!in_array($LDP,$opcoes_LDP)){
-            $erro = 'Selecione apenas LDPs';
-        }
-    }
-    if(empty($erro)){
-        $suceso = 'Parabens pela escolha e bons estudos';
-    }
 }
 
 ?>
