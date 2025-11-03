@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{
         $suceso ='HTML SELECIONADO';
     }
-    var_dump($tec);
+    print_r($tec);
 }
 
 ?>

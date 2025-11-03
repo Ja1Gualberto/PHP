@@ -10,7 +10,7 @@ $opcoes_LDP = ['JAVASCRIPT', 'PHP', 'C#'];
 // validacaoTexto($erro, $suceso);
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $opcoes = $_POST['opcoes'];
-    var_dump($opcoes);
+    print_r($opcoes);
     if(count($opcoes) > 2){
         $erro = 'Selecione exatamente duas tecnologias';
     }

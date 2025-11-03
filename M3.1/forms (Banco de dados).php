@@ -27,7 +27,7 @@ $opcoes_LDP = [
 // Versão para Banco de dados
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $tec = $_POST['tec'] ?? [];
-    var_dump($tec);
+    print_r($tec);
 
     if(count($tec)> 2){
         $erro = 'Selecione extamente duas tecnologias';

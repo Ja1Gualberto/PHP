@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!empty($_POST['honeypot'])){
         $erro ='Robo detectado';
     }
-    var_dump($_POST['teste']);
+    print_r($_POST['teste']);
 }
 
 ?>

@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $erro = 'Erro ao informar a forma de pagamento';
     }
     $payment = $_POST['payment'] ?? '';
-    var_dump($payment);
+    print_r($payment);
 }
 
 ?>
