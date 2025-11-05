@@ -6,7 +6,7 @@
     <title>Cadastro de CARRO</title>
 
 </head>
-<H1>Preencha as informações do seu carro</H1><br>
+<H1>Preencha as <i>informações</i> do seu carro</H1><br>
 <body>
     <div ></div>
 </body>
