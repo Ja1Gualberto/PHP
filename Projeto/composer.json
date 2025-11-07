@@ -1,0 +1,15 @@
+{
+    "name": "ja1/biblioteca",
+    "description": "Nossa Biblioteca oop",
+    "autoload": {
+        "psr-4": {
+            "Ja1\\Biblioteca\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joao Pedro Gualberto"
+        }
+    ],
+    "require": {}
+}
